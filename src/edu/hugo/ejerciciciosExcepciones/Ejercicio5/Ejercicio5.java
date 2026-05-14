@@ -2,6 +2,7 @@ package edu.hugo.ejerciciciosExcepciones.Ejercicio5;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Scanner;
 
 /*
 Objetivo Didáctico: Integración total. Mapas que contienen Listas (HashMap<String, ArrayList<String>>),
@@ -16,11 +17,24 @@ está en el mapa, lanza la excepción.
 -En el main, crea un bucle infinito que pida nombres de héroes por consola. Si el usuario escribe "salir",
 el bucle termina. Si escribe un nombre, llama a verMisiones capturando la excepción con elegancia.
  */
-public class ejercicio5 {
+public class Ejercicio5 {
 
-    static HashMap<String,String> tablonMisiones = new HashMap();
+    static HashMap<String,String> tablonMisiones = new HashMap<>();
+
+    public static void verMisisones(String heroe){
+
+    }
 
     public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Escribe nombres de Heroes o escribe salir para terminar");
+        while(true){
+
+        }
+
+
+
 
         ArrayList<String> misiones1 = new ArrayList<>();
         misiones1.add("Matar al dragón");
@@ -34,10 +48,23 @@ public class ejercicio5 {
         ArrayList<String> misiones3 = new ArrayList<>();
         misiones3.add("Entrenar nuevos guerreros");
         misiones3.add("Derrotar a los bandidos");
-        
+
         tablonMisiones.put("Batman", String.valueOf(misiones1));
         tablonMisiones.put("Superman", String.valueOf(misiones2));
         tablonMisiones.put("Flash", String.valueOf(misiones3));
 
+        try{
+            if(tablonMisiones.containsKey("Batman")){
+                System.out.println(misiones1);
+            }else  if(tablonMisiones.containsKey("Superman")){
+                System.out.println(misiones2);
+            }else  if(tablonMisiones.containsKey("Flash")){
+                System.out.println(misiones3);
+            }
+
+        }catch(HeroeNoRegistradoException e){
+            System.err.println("Error " + e.getMessage());
+
+        }
     }
 }
