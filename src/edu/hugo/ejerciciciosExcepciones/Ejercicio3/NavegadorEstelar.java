@@ -40,7 +40,7 @@ public class NavegadorEstelar {
 
         } catch (PlanetaDesconocidoException e) {
 
-            System.err.println("error: " + e.getMessage());
+            System.err.println("error " + e.getMessage());
         }
     }
 }
